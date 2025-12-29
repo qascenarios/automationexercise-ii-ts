@@ -1,8 +1,8 @@
-[![Playwright Tests](https://github.com/qascenarios/automationexercise-ii-javascript/actions/workflows/playwright.yml/badge.svg)](https://github.com/qascenarios/automationexercise-ii-javascript/actions/workflows/playwright.yml)
+[![Playwright Tests](https://github.com/qascenarios/automationexercise-ii-ts/actions/workflows/playwright.yml/badge.svg)](https://github.com/qascenarios/automationexercise-ii-ts/actions/workflows/playwright.yml)
 
-# Playwright JavaScript End-to-End Tests – Automation Exercise
+# Playwright Typescipt End-to-End Tests – Automation Exercise
 
-This repository contains **end-to-end (E2E) tests** written using **Playwright Test (JavaScript)** for the  
+This repository contains **end-to-end (E2E) tests** written using **Playwright Test (Typescript)** for the  
 Automation Exercise application, focusing on **registration, login, product search, cart, and checkout flows**.
 
 **Application under test:**  
@@ -12,14 +12,14 @@ Automation Exercise application, focusing on **registration, login, product sear
 ## Project Overview
 
 The goal of this project is to validate critical user journeys on Automation Exercise using  
-**modern JavaScript-based browser automation**.
+**modern Typescript-based browser automation**.
 
 The tests simulate real user interactions across multiple browsers to ensure that core e-commerce
 features behave correctly and consistently.
 
 This project uses:
 - **Playwright Test** as the test runner
-- **Playwright (JavaScript)** for browser automation
+- **Playwright (Typescript)** for browser automation
 - **Allure** for test reporting
 - **Docker** for containerized execution
 
@@ -40,7 +40,7 @@ The automated tests cover (but are not limited to):
 
 ## Tech Stack
 
-- **JavaScript (Node.js)**
+- **Typscript (Node.js)**
 - **Playwright Test**
 - **Allure Reporter**
 - **Docker**
@@ -58,8 +58,8 @@ Ensure the following are installed:
 
 ### Clone the repository
 ```bash
-git clone https://github.com/qascenarios/automationexercise-ii-javascript.git
-cd automationexercise-ii-javascript
+git clone https://github.com/qascenarios/automationexercise-ii-ts.git
+cd automationexercise-ii-ts
 ```
 
 ### Install dependencies
