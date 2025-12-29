@@ -24,5 +24,5 @@ test('User registration flow', async ({ page }) => {
   await registerPage.clickCreateAccount();
 
   // Verify account creation
-  await expect(registerPage.ACCOUNT_CREATION_MSG).toBeVisible();
+  expect(await registerPage.verifyAccountCreation());
 });
