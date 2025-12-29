@@ -1,10 +1,10 @@
 import {test} from '@playwright/test';
-import {AddProductToCartPage} from '../pages/AddProductToCartPage';
-import {SearchProductPage} from '../pages/SearchProductPage';
-import {CheckoutPage} from '../pages/CheckoutPage';
-import {LoginPage} from '../pages/LoginPage';
-import {loginData} from '../utils/testDate/auth';
-import {openUrl} from '../utils/helpers';
+import {AddProductToCartPage} from './pages/AddProductToCartPage';
+import {SearchProductPage} from './pages/SearchProductPage';
+import {CheckoutPage} from './pages/CheckoutPage';
+import {LoginPage} from './pages/LoginPage';
+import {loginData} from './utils/testDate/auth';
+import {openUrl} from './utils/helpers';
 
 test('Add product to cart flow', async ({page}) => {
     const loginPage = new LoginPage(page);

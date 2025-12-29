@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { openUrl } from '../utils/helpers';
-import { loginData } from '../utils/testDate/auth';
+import { LoginPage } from './pages/LoginPage';
+import { openUrl } from './utils/helpers';
+import { loginData } from './utils/testDate/auth';
 
 test('User login flow', async ({ page }) => {
   const loginPage = new LoginPage(page);

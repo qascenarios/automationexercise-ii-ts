@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { SearchProductPage } from '../pages/SearchProductPage';
-import { openUrl } from '../utils/helpers';
+import { SearchProductPage } from './pages/SearchProductPage';
+import { openUrl } from './utils/helpers';
 
 test('Product search flow', async ({ page }) => {
   const searchProductPage = new SearchProductPage(page);

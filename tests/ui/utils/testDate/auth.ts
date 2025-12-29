@@ -17,6 +17,11 @@ interface LoginData {
     password: string;
 }
 
+interface TestUser {
+    email: string;
+    password: string;
+}
+
 export const registerData: RegisterData = {
         name: 'John Doe',
         email: null, // to be filled with a generated email',
@@ -34,4 +39,9 @@ export const registerData: RegisterData = {
 export const loginData: LoginData = {
     email: 'tester_245@mail.com',
     password: 'tester2025#'
+};
+
+export const testUser = {
+  email: `testereso${Date.now()}@mail.com`,
+  password: 'tester2025#'
 };

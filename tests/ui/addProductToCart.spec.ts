@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test';
-import {AddProductToCartPage} from '../pages/AddProductToCartPage';
-import {SearchProductPage} from '../pages/SearchProductPage';
-import {openUrl} from '../utils/helpers';
+import {AddProductToCartPage} from './pages/AddProductToCartPage';
+import {SearchProductPage} from './pages/SearchProductPage';
+import {openUrl} from './utils/helpers';
 
 test('Add product to cart flow', async ({page}) => {
     const addProductToCartPage = new AddProductToCartPage(page);

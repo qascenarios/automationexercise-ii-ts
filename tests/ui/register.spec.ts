@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { RegisterPage } from '../pages/RegisterPage';
-import { registerData } from '../utils/testDate/auth';
-import { openUrl, generateRandomEmail } from '../utils/helpers';
+import { RegisterPage } from './pages/RegisterPage';
+import { registerData } from './utils/testDate/auth';
+import { openUrl, generateRandomEmail } from './utils/helpers';
 
 test('User registration flow', async ({ page }) => {
   const registerPage = new RegisterPage(page);
