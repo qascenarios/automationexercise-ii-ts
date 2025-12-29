@@ -1,9 +1,10 @@
 
 import { Page } from '@playwright/test';
 
+const baseUrl = 'https://automationexercise.com';
 
 async function openUrl(page: Page, endpoint: string) {
-  await page.goto(`https://automationexercise.com${endpoint}`);
+  await page.goto(`${baseUrl}${endpoint}`);
 }
 
 // Generate random email
@@ -12,4 +13,4 @@ function generateRandomEmail() {
     return `testuser_${timestamp}@mail.com`;
 }
 
-export { openUrl, generateRandomEmail };
+export {baseUrl, openUrl, generateRandomEmail };

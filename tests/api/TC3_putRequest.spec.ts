@@ -1,9 +1,9 @@
 import {test, expect} from '@playwright/test';
+import { baseUrl } from '../ui/utils/helpers';
 
 test('PUT To All Brands List', async ({request}) => {
 
-    const response = await request.put('https://automationexercise.com/api/brandsList');
-
+    const response = await request.put(`${baseUrl}/api/brandsList`);
     const responseBody = await response.json();
 
     expect(responseBody['responseCode']).toBe(405);
@@ -13,7 +13,7 @@ test('PUT To All Brands List', async ({request}) => {
 
 test('PUT METHOD To Update User Account', async ({request}) => {
 
-    const response = await request.put('https://automationexercise.com/api/updateAccount', {
+    const response = await request.put(`${baseUrl}/api/updateAccount`, {
       form: {
         name: 'investor',
         email: 'tester_245@mail.com',

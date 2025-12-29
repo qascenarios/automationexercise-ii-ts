@@ -1,8 +1,9 @@
 import {test, expect} from '@playwright/test';
+import { baseUrl } from '../ui/utils/helpers';
 
 test('DELETE To Verify Login', async ({request}) => {
 
-    const response = await request.delete('https://automationexercise.com/api/verifyLogin');
+    const response = await request.delete(`${baseUrl}/api/verifyLogin`);
 
     const responseBody = await response.json();
 
@@ -13,8 +14,7 @@ test('DELETE To Verify Login', async ({request}) => {
 
 
 test('DELETE METHOD To Delete User Account', async ({ request }) => {
-  const response = await request.delete(
-    'https://automationexercise.com/api/deleteAccount',
+  const response = await request.delete(`${baseUrl}/api/deleteAccount`,
     {
       params: {
         email: 'tester_257@mail.com',

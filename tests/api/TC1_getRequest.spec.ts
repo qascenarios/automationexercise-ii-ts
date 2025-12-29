@@ -1,9 +1,9 @@
 import {test, expect} from '@playwright/test';
+import { baseUrl } from '../ui/utils/helpers';
 
 test('GET To All Products List', async ({request}) => {
 
-    const response = await request.get('https://automationexercise.com/api/productsList');
-
+    const response = await request.get(`${baseUrl}/api/productsList`);
     const responseBody = await response.json();
 
     expect(responseBody['responseCode']).toBe(200);
@@ -20,7 +20,7 @@ test('GET To All Products List', async ({request}) => {
 
 test('Get All Brands List', async ({request}) => {
 
-    const response = await request.get(' https://automationexercise.com/api/brandsList');
+    const response = await request.get(`${baseUrl}/api/brandsList`);
     
     const responseBody = await response.json();
 
@@ -33,7 +33,7 @@ test('Get All Brands List', async ({request}) => {
 
 test('GET user account detail by email', async ({request}) => {
 
-    const response = await request.get('https://automationexercise.com/api/getUserDetailByEmail', 
+    const response = await request.get(`${baseUrl}/api/getUserDetailByEmail`, 
     {   
       params: {
         email: 'tester_245@mail.com'

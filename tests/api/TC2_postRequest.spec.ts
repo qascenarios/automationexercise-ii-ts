@@ -1,10 +1,10 @@
 import {test, expect} from '@playwright/test';
 import { testUser } from '../ui/utils/testDate/auth';
+import { baseUrl } from '../ui/utils/helpers';
 
 test('POST To All Products List', async ({request}) => {
 
-    const response = await request.post('https://automationexercise.com/api/productsList');
-
+    const response = await request.post(`${baseUrl}/api/productsList`);
     const responseBody = await response.json();
 
     expect(responseBody['responseCode']).toBe(405);
@@ -14,7 +14,7 @@ test('POST To All Products List', async ({request}) => {
 
 test('POST To Search Product', async ({request}) => {
 
-    const response = await request.post('https://automationexercise.com/api/searchProduct', {
+    const response = await request.post(`${baseUrl}/api/searchProduct`, {
       form: {
         search_product: 'top',
       },
@@ -32,7 +32,7 @@ test('POST To Search Product', async ({request}) => {
 
 test('POST To Search Product without search_product parameter', async ({request}) => {
 
-    const response = await request.post(' https://automationexercise.com/api/searchProduct');
+    const response = await request.post(`${baseUrl}/api/searchProduct`);
     
     const responseBody = await response.json();
     expect(responseBody['responseCode']).toBe(400);
@@ -41,7 +41,7 @@ test('POST To Search Product without search_product parameter', async ({request}
 
 test('POST To Verify Login with valid details', async ({request}) => {
 
-    const response = await request.post('https://automationexercise.com/api/verifyLogin', {
+    const response = await request.post(`${baseUrl}/api/verifyLogin`, {
       form: {
         email: 'tester_245@mail.com',
         password: 'tester2025#',
@@ -57,7 +57,7 @@ test('POST To Verify Login with valid details', async ({request}) => {
 
 test('POST To Verify Login without email parameter', async ({request}) => {
 
-    const response = await request.post('https://automationexercise.com/api/verifyLogin', {
+    const response = await request.post(`${baseUrl}/api/verifyLogin`, {
       form: {
         password: 'tester2025#',
       },
@@ -72,7 +72,7 @@ test('POST To Verify Login without email parameter', async ({request}) => {
 
 test('POST To Verify Login with invalid details', async ({request}) => {
 
-    const response = await request.post('https://automationexercise.com/api/verifyLogin', {
+    const response = await request.post(`${baseUrl}/api/verifyLogin`, {
       form: {
         email: 'tester_y@mail.com',
         password: 'tester#',
@@ -88,7 +88,7 @@ test('POST To Verify Login with invalid details', async ({request}) => {
 
 test('POST To Create/Register User Account', async ({request}) => {
 
-    const response = await request.post(' https://automationexercise.com/api/createAccount', {
+    const response = await request.post(`${baseUrl}/api/createAccount`, {
       form: {
         name: 'Tester',
         email: testUser.email,
