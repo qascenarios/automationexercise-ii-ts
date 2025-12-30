@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, expect, Locator } from '@playwright/test';
 import { BasePage } from './BasePage';
 
 export class CheckoutPage extends BasePage {
@@ -44,7 +44,7 @@ export class CheckoutPage extends BasePage {
     async payAndConfirmOrder(){
         await this.PAY_AND_CONFIRM_ORDER_BUTTON.click();
     }   
-    async isSuccessMessageVisible(): Promise<boolean>{
-        return await this.SUCCESS_MESSAGE.isVisible({ timeout: 5000 });
+    async isSuccessMessageVisible(text: string){
+        await expect(this.SUCCESS_MESSAGE).toHaveText(text);
     }
 }

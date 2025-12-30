@@ -43,6 +43,6 @@ test('Add product to cart flow', async ({page}) => {
     await checkoutPage.payAndConfirmOrder();
 
     // Verify order confirmation
-    await checkoutPage.isSuccessMessageVisible();
+    await checkoutPage.isSuccessMessageVisible("Order Placed!");
 
 });
