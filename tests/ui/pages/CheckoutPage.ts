@@ -22,7 +22,7 @@ export class CheckoutPage extends BasePage {
         this.CARD_EXPIRY_MONTH_INPUT = page.getByRole('textbox', { name: 'MM' });
         this.CARD_EXPIRY_YEAR_INPUT = page.getByRole('textbox', { name: 'YYYY' });
         this.PAY_AND_CONFIRM_ORDER_BUTTON = page.getByRole('button', { name: 'Pay and Confirm Order' });
-        this.SUCCESS_MESSAGE = page.getByText('Order Placed!');
+        this.SUCCESS_MESSAGE = page.locator('h2[data-qa="order-placed"]');
     }
 
     async proceedToCheckout(){
@@ -45,6 +45,6 @@ export class CheckoutPage extends BasePage {
         await this.PAY_AND_CONFIRM_ORDER_BUTTON.click();
     }   
     async isSuccessMessageVisible(text: string){
-        expect(this.SUCCESS_MESSAGE).toHaveText(text);
+        await expect(this.SUCCESS_MESSAGE).toHaveText(text);
     }
 }
