@@ -30,4 +30,4 @@ COPY . .
 RUN mkdir -p allure-results playwright-report
 
 # Run Playwright tests with 4 workers
-CMD ["npx", "playwright", "test", "--workers=4"]
+CMD ["npx", "playwright", "test", "--workers=1"]
