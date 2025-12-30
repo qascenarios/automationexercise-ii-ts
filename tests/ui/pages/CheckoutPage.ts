@@ -45,6 +45,6 @@ export class CheckoutPage extends BasePage {
         await this.PAY_AND_CONFIRM_ORDER_BUTTON.click();
     }   
     async isSuccessMessageVisible(text: string){
-        await expect(this.SUCCESS_MESSAGE).toHaveText(text);
+        expect(this.SUCCESS_MESSAGE).toHaveText(text);
     }
 }
