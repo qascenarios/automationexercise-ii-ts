@@ -26,6 +26,7 @@ export class AddProductToCartPage extends BasePage {
   }
 
   async clickContinueShopping() {
+    await this.CONTINUE_SHOPPING_BUTTON.waitFor({ state: 'visible' });
     await this.CONTINUE_SHOPPING_BUTTON.click();
   }
 
