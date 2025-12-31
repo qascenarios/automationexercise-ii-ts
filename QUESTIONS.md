@@ -42,7 +42,7 @@ RESPONSE: I picked the following 4 journeys:
 • Proceed to choose the framework and programming language you intend on using and explain why you choose them?
 RESPONSE - I choose:
 
-    i. Framework: pytest-playwright:
+    i. Framework: playwright Typescript:
 
         • Offers out-of-the-box support for browser contexts.
         • It provides inbuilt auto-waiting, thereby reducing "flaky" tests.
