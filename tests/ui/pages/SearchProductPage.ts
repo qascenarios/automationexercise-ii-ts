@@ -14,6 +14,7 @@ export class SearchProductPage extends BasePage {
     }
 
     async enterSearchProduct(productName: string){
+        await this.SEARCH_INPUT.waitFor({ state: 'visible' });
         await this.SEARCH_INPUT.fill('');
         await this.SEARCH_INPUT.fill(productName);
     }
