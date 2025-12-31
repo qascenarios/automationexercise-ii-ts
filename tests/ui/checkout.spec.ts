@@ -6,12 +6,14 @@ import {LoginPage} from './pages/LoginPage';
 import {loginData} from './utils/testDate/auth';
 import {openUrl} from './utils/helpers';
 
+// End-to-end test: Login, add products to cart, and complete checkout
 test('Add product to cart flow', async ({page}) => {
     const loginPage = new LoginPage(page);
     const addProductToCartPage = new AddProductToCartPage(page);
     const searchProductPage = new SearchProductPage(page);
     const checkoutPage = new CheckoutPage(page);    
 
+    // Navigate to the login page
     await openUrl(page, '/login');
     await addProductToCartPage.handleDialog();
     // Login steps
@@ -21,6 +23,7 @@ test('Add product to cart flow', async ({page}) => {
 
     // Add product to the cart
     await addProductToCartPage.navigateToProductsPage();
+    // List of products to search and add
     const searchInput = ['Blue Top', 'Stylish Dress', 'Fancy Green Top'];
     for (const term of searchInput) {
       await addProductToCartPage.handleDialog();
@@ -29,10 +32,13 @@ test('Add product to cart flow', async ({page}) => {
       await addProductToCartPage.addFirstProductToCart();
       await addProductToCartPage.clickContinueShopping();
     }
-    await addProductToCartPage.viewCart()
 
+    // Navigate to the cart page
+    await addProductToCartPage.viewCart()
+    // Checkout process
     await checkoutPage.proceedToCheckout();
     await checkoutPage.placeOrder();
+    // Enter payment details
     await checkoutPage.enterCardDetails(
         "Test user",
         "4111111111111111",
@@ -40,9 +46,10 @@ test('Add product to cart flow', async ({page}) => {
         "05",
         "2025"
     );
+    // Complete payment and confirm order
     await checkoutPage.payAndConfirmOrder();
 
-    // Verify order confirmation
+    // Verify that the order confirmation message is displayed
     await checkoutPage.isSuccessMessageVisible("Order Placed!");
 
 });

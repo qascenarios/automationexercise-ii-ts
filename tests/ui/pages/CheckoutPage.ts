@@ -2,6 +2,7 @@ import { Page, expect, Locator } from '@playwright/test';
 import { BasePage } from './BasePage';
 
 export class CheckoutPage extends BasePage {
+     // Locators for checkout and payment elements
     private PROCEED_TO_CHECKOUT_BUTTON: Locator;
     private PLACE_ORDER_BUTTON: Locator;
     private NAME_ON_CARD_INPUT: Locator;
@@ -12,6 +13,7 @@ export class CheckoutPage extends BasePage {
     private PAY_AND_CONFIRM_ORDER_BUTTON: Locator;
     private SUCCESS_MESSAGE: Locator;
 
+    // Constructor initializes the page and all element locators
     constructor(page: Page){
         super(page);
         this.PROCEED_TO_CHECKOUT_BUTTON = page.locator('a.check_out');
@@ -25,14 +27,18 @@ export class CheckoutPage extends BasePage {
         this.SUCCESS_MESSAGE = page.locator('h2[data-qa="order-placed"]');
     }
 
+    // Proceeds from the cart to the checkout page
     async proceedToCheckout(){
+        await this.PROCEED_TO_CHECKOUT_BUTTON.waitFor({ state: 'visible' });
         await this.PROCEED_TO_CHECKOUT_BUTTON.click();
     }
 
+    // Clicks the "Place Order" link before entering payment details
     async placeOrder(){
         await this.PLACE_ORDER_BUTTON.click();
     }
 
+    // Fills in credit/debit card details in the payment form
     async enterCardDetails(nameOnCard: string, cardNumber: string, cvc: string, expiryMonth: string, expiryYear: string){
         await this.NAME_ON_CARD_INPUT.fill(nameOnCard);
         await this.CARD_NUMBER_INPUT.fill(cardNumber);
@@ -41,9 +47,12 @@ export class CheckoutPage extends BasePage {
         await this.CARD_EXPIRY_YEAR_INPUT.fill(expiryYear);
     }
 
+    // Submits the payment and confirms the order
     async payAndConfirmOrder(){
         await this.PAY_AND_CONFIRM_ORDER_BUTTON.click();
     }   
+
+    // Verifies that the success message is visible and matches expected text
     async isSuccessMessageVisible(text: string){
         await this.SUCCESS_MESSAGE.waitFor({ state: 'visible' });
         await expect(this.SUCCESS_MESSAGE).toHaveText(text);
