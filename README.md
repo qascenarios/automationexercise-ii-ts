@@ -60,6 +60,12 @@ Ensure the following are installed:
 ```bash
 git clone https://github.com/qascenarios/automationexercise-ii-ts.git
 cd automationexercise-ii-ts
+---------------------------------------------------------------------
+git clone https://github.com/qascenarios/automationexercise-ii.git
+cd automationexercise-ii
+---------------------------------------------------------------------
+git clone https://github.com/qascenarios/automationexercise-ii-js.git
+cd automationexercise-ii-js
 ```
 
 ### Install dependencies
